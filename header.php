@@ -20,6 +20,33 @@ if (!defined('ABSPATH')) {
 
 <div id="hnProgressBar" class="hn-progress" aria-hidden="true"></div>
 
+<!-- Mobile menu drawer - outside container for proper isolation -->
+<div id="hnMenuPanel" class="hn-drawer" hidden>
+	<div class="hn-drawer__backdrop" data-hn-close-menu aria-hidden="true"></div>
+	<div class="hn-drawer__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Menu', 'hamroniti'); ?>">
+		<div class="hn-drawer__head">
+			<div class="hn-drawer__title hn-serif"><?php esc_html_e('Menu', 'hamroniti'); ?></div>
+			<button class="hn-icon-btn" type="button" data-hn-close-menu aria-label="<?php esc_attr_e('Close menu', 'hamroniti'); ?>">
+				<span class="material-symbols-outlined" aria-hidden="true">close</span>
+			</button>
+		</div>
+
+		<div class="hn-drawer__body">
+			<?php
+			wp_nav_menu(
+				[
+					'theme_location' => 'primary',
+					'container' => false,
+					'menu_class' => 'hn-menu hn-menu--drawer',
+					'fallback_cb' => false,
+					'depth' => 2,
+				]
+			);
+			?>
+		</div>
+	</div>
+</div>
+
 <div class="hn-container">
 	<header class="hn-header hn-glass">
 		<div class="hn-header-inner">
@@ -58,32 +85,6 @@ if (!defined('ABSPATH')) {
 				<button class="hn-icon-btn" type="button" data-hn-close-search aria-label="<?php esc_attr_e('Close search', 'hamroniti'); ?>" style="position:absolute; right:0; top:50%; transform:translateY(-50%);">
 					<span class="material-symbols-outlined" aria-hidden="true">close</span>
 				</button>
-			</div>
-		</div>
-
-		<div id="hnMenuPanel" class="hn-drawer" hidden>
-			<div class="hn-drawer__backdrop" data-hn-close-menu aria-hidden="true"></div>
-			<div class="hn-drawer__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Menu', 'hamroniti'); ?>">
-				<div class="hn-drawer__head">
-					<div class="hn-drawer__title hn-serif"><?php esc_html_e('Menu', 'hamroniti'); ?></div>
-					<button class="hn-icon-btn" type="button" data-hn-close-menu aria-label="<?php esc_attr_e('Close menu', 'hamroniti'); ?>">
-						<span class="material-symbols-outlined" aria-hidden="true">close</span>
-					</button>
-				</div>
-
-				<div class="hn-drawer__body">
-					<?php
-					wp_nav_menu(
-						[
-							'theme_location' => 'primary',
-							'container' => false,
-							'menu_class' => 'hn-menu hn-menu--drawer',
-							'fallback_cb' => false,
-							'depth' => 2,
-						]
-					);
-					?>
-				</div>
 			</div>
 		</div>
 	</header>

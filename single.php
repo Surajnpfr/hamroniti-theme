@@ -51,13 +51,13 @@ if (have_posts()) :
 						<div class="hn-article-meta-text">
 							<a class="hn-article-author" href="<?php echo esc_url(get_author_posts_url($author_id)); ?>">
 								<?php echo esc_html($author_name); ?>
-							</a>
+					</a>
 							<p class="hn-article-meta-sub">
-								<?php echo esc_html(get_the_date('M j, Y')); ?>
-								<?php if ($minutes) : ?>
-									• <?php echo esc_html($minutes); ?> min read
-								<?php endif; ?>
-							</p>
+				<?php echo esc_html(get_the_date('M j, Y')); ?>
+				<?php if ($minutes) : ?>
+					• <?php echo esc_html($minutes); ?> min read
+				<?php endif; ?>
+			</p>
 						</div>
 						<button class="hn-article-meta-actions" type="button" aria-label="<?php esc_attr_e('Share this article', 'hamroniti'); ?>">
 							<span class="material-symbols-outlined" aria-hidden="true">share</span>
@@ -70,7 +70,7 @@ if (have_posts()) :
 						<?php the_post_thumbnail('large', ['class' => 'hn-article-img']); ?>
 					<?php else : ?>
 						<div class="hn-article-img hn-article-img--placeholder">🏛️</div>
-					<?php endif; ?>
+			<?php endif; ?>
 
 					<?php if ($primary_cat) : ?>
 						<a class="hn-article-badge" href="<?php echo esc_url(get_category_link($primary_cat)); ?>">
@@ -86,7 +86,7 @@ if (have_posts()) :
 
 			<article class="hn-article-body">
 				<div class="hn-article-content hn-content">
-					<?php the_content(); ?>
+				<?php the_content(); ?>
 				</div>
 			</article>
 
